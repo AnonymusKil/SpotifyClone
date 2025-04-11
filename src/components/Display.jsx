@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Route,
-  Routes,
-  useLocation,
-  BrowserRouter as Router,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import DisplayHome from "./DisplayHome";
 import DisplayAlbum from "./DisplayAlbum";
 import { useRef } from "react";
@@ -19,9 +14,9 @@ function Display() {
 
   useEffect(() => {
     if (isAlbum) {
-      displayRef.current.style.background = `linear-gradient(${bgColor}, #121212)`;
+      displayRef.current.style.background = `linear-gradient(${bgColor}, #121212)`; // Fix: Use backticks to create a string
     } else {
-      displayRef.current.style.background = `#121212`;
+      displayRef.current.style.background = `#121212`; // Fix: Background color should be a string
     }
   });
 
@@ -30,14 +25,11 @@ function Display() {
       ref={displayRef}
       className="w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0 "
     >
-      <Router basename="/SpotifyClone">
-        {" "}
-        {/* Add basename */}
-        <Routes>
-          <Route path="/" element={<DisplayHome />} />
-          <Route path="/album/:id" element={<DisplayAlbum />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<DisplayHome />} />
+        <Route path="/album/:id" element={<DisplayAlbum />} />{" "}
+        {/* Fixed the space */}
+      </Routes>
     </div>
   );
 }

@@ -4,9 +4,12 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import PlayerContextProvider from "./context/PlayContext.jsx";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/SpotifyClone">
+      {" "}
+      {/* Add basename here */}
       <PlayerContextProvider>
         <App />
       </PlayerContextProvider>
